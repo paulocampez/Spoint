@@ -4,8 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Core.Domain.Interfaces;
+using Customers.Commands;
+using Customers.Domain.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Spoint.Api.Models.Customer;
 
 namespace Spoint.Api.Controllers
 {
@@ -13,9 +16,16 @@ namespace Spoint.Api.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
+        private readonly ICustomerRepository _customerRepository;
         private readonly IMapper _mapper;
         private readonly IMediatrHandler _mediatorHandler;
 
+        public CustomerController(IMapper mapper, ICustomerRepository customerRepository, IMediatrHandler mediatorHandler)
+        {
+            _mapper = mapper;
+            _customerRepository = customerRepository;
+            _mediatorHandler = mediatorHandler;
+        }
 
         // GET: api/Customer
         [HttpGet]
@@ -33,8 +43,10 @@ namespace Spoint.Api.Controllers
 
         // POST: api/Customer
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] CreateCustomerViewModel createCustomerViewModel)
         {
+            _mediatorHandler.SendCommand(_mapper.Map<CreateCustomerCommand>(createCustomerViewModel));
+            
         }
 
         // PUT: api/Customer/5
