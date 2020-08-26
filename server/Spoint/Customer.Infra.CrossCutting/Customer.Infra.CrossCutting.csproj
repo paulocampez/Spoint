@@ -67,6 +67,10 @@
       <Project>{DDEC0151-539C-4153-97AC-CE478EB47162}</Project>
       <Name>Core.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\src\Customers.CommandStack\Customers.CommandStack.csproj">
+      <Project>{4C251950-5D6C-4A26-8C1B-99CEF938216A}</Project>
+      <Name>Customers.CommandStack</Name>
+    </ProjectReference>
     <ProjectReference Include="..\src\Customers.Domain\Customers.Domain.csproj">
       <Project>{55B39F46-66E2-4E0A-A476-16B2B2D781EB}</Project>
       <Name>Customers.Domain</Name>
