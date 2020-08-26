@@ -14,7 +14,7 @@ namespace Customer.Infra.CrossCutting
 {
     public static class Bootstrapper
     {
-        public static void RegistrarServicos(IServiceCollection services)
+        public static void RegisterServices(IServiceCollection services)
         {
             services.AddScoped<ICustomerRepository, CustomerRepository>();
 
