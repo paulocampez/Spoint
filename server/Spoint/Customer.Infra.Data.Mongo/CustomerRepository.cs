@@ -13,7 +13,7 @@ namespace Customer.Infra.Data.Mongo
 {
     public class CustomerRepository : Repository<Customers.Domain.Customer>, ICustomerRepository
     {
-        public CustomerRepository(IConfiguration configuration) { }
-       
+        public CustomerRepository(IConfiguration configuration) : base(configuration) { }
+
     }
 }
