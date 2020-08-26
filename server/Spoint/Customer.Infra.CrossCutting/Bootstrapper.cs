@@ -18,7 +18,7 @@ namespace Customer.Infra.CrossCutting
         {
             services.AddScoped<ICustomerRepository, CustomerRepository>();
 
-            services.AddScoped<IRequestHandler<CreateCustomerCommand, bool>, CustomerCommandHandler>();
+            //services.AddScoped<IRequestHandler<CreateCustomerCommand, bool>, CustomerCommandHandler>();
         }
     }
 }

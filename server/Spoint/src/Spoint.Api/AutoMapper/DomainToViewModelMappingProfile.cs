@@ -12,7 +12,7 @@ namespace Spoint.Api.AutoMapper
     {
         public DomainToViewModelMappingProfile()
         {
-            CreateMap<Customer, CustomerViewModel>();
+            CreateMap<Customers.Domain.Customer, CustomerViewModel>();
         }
     }
 }

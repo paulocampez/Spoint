@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,6 +11,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Spoint.Api.Configurations;
+using MediatR;
+using Customer.Infra.CrossCutting;
+using Core.Domain.CommandHandler;
+using Core.Domain.Interfaces;
+using Core.Domain.Repository;
+using Customers.Commands;
+using Customers.CommandStack.Handlers;
 
 namespace Spoint.Api
 {
@@ -27,6 +36,14 @@ namespace Spoint.Api
         {
             services.AddSwaggerGen();
             services.AddControllers();
+
+            services.AddScoped<IMediatrHandler, MediatrHandler>();
+            services.AddScoped<IMongoSequenceRepository, MongoSequenceRepository>();
+            services.AddAutoMapperSetup();
+            services.AddMediatR(typeof(Startup));
+            services.AddAutoMapper(typeof(Startup));
+            services.AddScoped<IRequestHandler<CreateCustomerCommand, bool>, CustomerCommandHandler>();
+            Bootstrapper.RegisterServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -15,6 +15,11 @@ namespace Core.Domain.CommandHandler
     {
         private readonly IMediator _mediator;
 
+        public MediatrHandler(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
         public Task RaiseEvent<T>(T events, CancellationToken cancellation = default, bool enqueue = false) where T : Event
         {
             throw new NotImplementedException();
