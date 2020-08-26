@@ -3,7 +3,7 @@ version: '3.7'
 services:
 
   api:
-    build: server
+    build: server\Spoint
     depends_on:
       - mongo
     ports:

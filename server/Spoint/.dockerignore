@@ -21,5 +21,16 @@
 **/obj
 **/secrets.dev.yaml
 **/values.dev.yaml
+.dockerignore
+.env
+.git
+.gitignore
+.vs
+*.vs
+.vscode
+*/bin
+*/obj
+**/.toolstarget
+global.json
 LICENSE
 README.md
