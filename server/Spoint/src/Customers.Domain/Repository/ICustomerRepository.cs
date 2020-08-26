@@ -7,5 +7,6 @@ namespace Customers.Domain.Repository
 {
     public interface ICustomerRepository : IRepository<Customer>
     {
+
     }
 }

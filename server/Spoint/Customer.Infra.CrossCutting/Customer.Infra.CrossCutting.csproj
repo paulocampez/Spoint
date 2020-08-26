@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4C251950-5D6C-4A26-8C1B-99CEF938216A}</ProjectGuid>
+    <ProjectGuid>{9E1428AF-7598-49D6-A960-41D3854DB6D6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Customers.CommandStack</RootNamespace>
-    <AssemblyName>Customers.CommandStack</AssemblyName>
+    <RootNamespace>Customer.Infra.CrossCutting</RootNamespace>
+    <AssemblyName>Customer.Infra.CrossCutting</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,7 +32,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MediatR, Version=8.0.0.0, Culture=neutral, PublicKeyToken=bb9a41a5e8aaa7e2, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\MediatR.8.1.0\lib\net461\MediatR.dll</HintPath>
+      <HintPath>..\packages\MediatR.8.1.0\lib\net461\MediatR.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.7\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,26 +47,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Handlers\CustomerCommandHandler.cs" />
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Customers.Command\Customers.Command.csproj">
-      <Project>{57EBFFD2-4AF3-4477-BD32-48173FCBB26B}</Project>
-      <Name>Customers.Command</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Core.Domain\Core.Domain.csproj">
-      <Project>{DDEC0151-539C-4153-97AC-CE478EB47162}</Project>
-      <Name>Core.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Customers.Domain\Customers.Domain.csproj">
-      <Project>{55B39F46-66E2-4E0A-A476-16B2B2D781EB}</Project>
-      <Name>Customers.Domain</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Customer.Infra.Data.Mongo\Customer.Infra.Data.Mongo.csproj">
+      <Project>{9ACA4C14-025F-4F3A-A749-201504100085}</Project>
+      <Name>Customer.Infra.Data.Mongo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Customers.Command\Customers.Command.csproj">
+      <Project>{57EBFFD2-4AF3-4477-BD32-48173FCBB26B}</Project>
+      <Name>Customers.Command</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\Core.Domain\Core.Domain.csproj">
+      <Project>{DDEC0151-539C-4153-97AC-CE478EB47162}</Project>
+      <Name>Core.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\Customers.Domain\Customers.Domain.csproj">
+      <Project>{55B39F46-66E2-4E0A-A476-16B2B2D781EB}</Project>
+      <Name>Customers.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
