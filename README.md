@@ -1,5 +1,5 @@
 # Spoint
-Projeto de teste para estudo de arquitetura hexagonal + Swagger
+Projeto de teste para estudo de arquitetura hexagonal + Swagger + Mongo
 
 ## Começando
 Para executar a aplicação:
