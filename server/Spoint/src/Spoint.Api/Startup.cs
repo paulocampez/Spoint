@@ -14,11 +14,11 @@ using Microsoft.Extensions.Logging;
 using Spoint.Api.Configurations;
 using MediatR;
 using Customer.Infra.CrossCutting;
-using Core.Domain.CommandHandler;
-using Core.Domain.Interfaces;
-using Core.Domain.Repository;
-using Customers.Commands;
-using Customers.CommandStack.Handlers;
+using Core.Domains.CommandHandler;
+using Core.Domains.Interfaces;
+using Core.Domains.Repository;
+using Customer.Command;
+using Customer.CommandStack.Handlers;
 
 namespace Spoint.Api
 {

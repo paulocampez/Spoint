@@ -3,11 +3,11 @@ version: '3.7'
 services:
 
   api:
-    build: server\Spoint
+    build: server/Spoint
     depends_on:
       - mongo
     ports:
-    - 5002:80
+    - 5042:80
     networks:
       - spoint
     environment:

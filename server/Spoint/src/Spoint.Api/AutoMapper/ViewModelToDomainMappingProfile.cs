@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Customers.Commands;
+using Customer.Command;
 using Customers.Domain;
 using Spoint.Api.Models.Customer;
 using System;

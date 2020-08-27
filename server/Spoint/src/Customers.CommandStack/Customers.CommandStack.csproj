@@ -48,16 +48,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Customers.Command\Customers.Command.csproj">
-      <Project>{57EBFFD2-4AF3-4477-BD32-48173FCBB26B}</Project>
-      <Name>Customers.Command</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Core.Domain\Core.Domain.csproj">
       <Project>{DDEC0151-539C-4153-97AC-CE478EB47162}</Project>
       <Name>Core.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Customers.Command\Customers.Command.csproj">
+      <Project>{57ebffd2-4af3-4477-bd32-48173fcbb26b}</Project>
+      <Name>Customers.Command</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Customers.Domain\Customers.Domain.csproj">
-      <Project>{55B39F46-66E2-4E0A-A476-16B2B2D781EB}</Project>
+      <Project>{55b39f46-66e2-4e0a-a476-16b2b2d781eb}</Project>
       <Name>Customers.Domain</Name>
     </ProjectReference>
   </ItemGroup>

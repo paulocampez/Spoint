@@ -1,4 +1,4 @@
-﻿using Core.Domain.Models;
+﻿using Core.Domains.Models;
 using System;
 
 namespace Customers.Domain

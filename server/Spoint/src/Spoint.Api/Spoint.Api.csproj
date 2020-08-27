@@ -19,10 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Customer.Infra.CrossCutting\Customer.Infra.CrossCutting.csproj" />
-    <ProjectReference Include="..\..\Customers.Command\Customers.Command.csproj" />
-    <ProjectReference Include="..\Core.Domain\Core.Domain.csproj" />
+    <ProjectReference Include="..\Core.Domains\Core.Domains.csproj" />
+    <ProjectReference Include="..\Customer.CommandStack\Customer.CommandStack.csproj" />
+    <ProjectReference Include="..\Customer.Command\Customer.Command.csproj" />
     <ProjectReference Include="..\Customers.Domain\Customers.Domain.csproj" />
+    <ProjectReference Include="..\Customers.Infra.CrossCutting\Customers.Infra.CrossCutting.csproj" />
   </ItemGroup>
 
 

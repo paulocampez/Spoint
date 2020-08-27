@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="8.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Customer.CommandStack\Customer.CommandStack.csproj" />
+    <ProjectReference Include="..\Customer.Command\Customer.Command.csproj" />
+    <ProjectReference Include="..\Customers.Infra.Data.Mongo\Customers.Infra.Data.Mongo.csproj" />
+  </ItemGroup>
+
+</Project>

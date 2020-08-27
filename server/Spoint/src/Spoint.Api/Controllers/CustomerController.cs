@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using Core.Domain.Interfaces;
-using Customers.Commands;
+using Core.Domains.Interfaces;
+using Customer.Command;
 using Customers.Domain.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -28,17 +28,20 @@ namespace Spoint.Api.Controllers
         }
 
         // GET: api/Customer
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<CustomerViewModel> GetAll()
         {
-            return new string[] { "value1", "value2" };
+            return _mapper.Map<IEnumerable<CustomerViewModel>>(_customerRepository.GetAll());
         }
 
-        // GET: api/Customer/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public CustomerViewModel Get(Guid id)
         {
-            return "value";
+            var customer = _customerRepository.GetById(id);
+            CustomerViewModel customerViewModel = new CustomerViewModel() { BirthDate = customer.BirthDate, Register = customer.Register, Phone =  customer.Phone, CreationDate = customer.CreationDate, Email = customer.Email, Id = customer.Id, Name = customer.Name };
+
+            return customerViewModel;
         }
 
         // POST: api/Customer
@@ -51,14 +54,24 @@ namespace Spoint.Api.Controllers
 
         // PUT: api/Customer/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(Guid id, [FromBody] CustomerViewModel value)
         {
+            var customer = _customerRepository.GetById(id);
+
+            customer.BirthDate = value.BirthDate;
+            customer.Email = value.Email;
+            customer.Name = value.Name;
+            customer.Phone = value.Phone;
+            customer.Register = value.Register;
+
+            _customerRepository.Update(customer);
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
+            _customerRepository.Delete(id);
         }
     }
 }
